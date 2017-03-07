@@ -70,6 +70,9 @@ demo: bin/grunt-docker
 ants:
 	docker build -t pesscara/ants -f docker/ants.Dockerfile .
 
+riipl: bin/grunt-docker
+	docker build -t pesscara/riipl -f docker/riipl.Dockerfile .
+
 slicer:
 	docker build -t pesscara/slicer -f docker/slicer.Dockerfile .
 

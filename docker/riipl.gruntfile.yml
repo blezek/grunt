@@ -1,0 +1,30 @@
+# A service consists of the following fields:
+# endPoint      -- REST endpoint, e.g. /rest/service/<endPoint>
+# commandLine   -- Command line to run
+#                  Some special command line parameters are
+#                  #value  -- replace this argument with the parameter from the POST
+#                  <in     -- look for an uploaded file
+#                  >out    -- the process will generate this file for later download
+# description   -- description of the endpoint
+# defaults      -- a hashmap of default values for "#value" parameters
+
+
+# This is the hostname:port that the server is running on.
+# Used for logging and email
+server: localhost:9901
+
+# Working directory
+# This is the directory path used for working files. If left blank,
+# use a system temp directory.
+# NB: To run in the pesscara/grunt docker, this must be set to /data
+directory: /riipl/grunt_work
+
+# Report Warn status to Consul when we have more than warnLevel jobs
+warnLevel: 3
+# Report Critical status to Consul when we have more than criticalLevel jobs
+warnLevel: 5
+
+services:
+  - endPoint: runFeaturePipeline
+    commandLine: ["/riipl/riipl.sh", "<dso", "<dicom", ">output.zip"]
+
