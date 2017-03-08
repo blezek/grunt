@@ -73,6 +73,9 @@ ants:
 riipl: bin/grunt-docker
 	docker build -t pesscara/riipl -f docker/riipl.Dockerfile .
 
+riipl.run:
+	docker run --rm -p 9901:9901 -it pesscara/riipl
+
 slicer:
 	docker build -t pesscara/slicer -f docker/slicer.Dockerfile .
 
